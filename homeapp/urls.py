@@ -20,6 +20,9 @@ from .views import *
 
 urlpatterns = [
     path('home/',home),
-    path('add-emp/',add_emp)
+    path('add-emp/',add_emp),
+    path('emp-view/', empview),
+    path('emp-update/<int:emp_id>', emp_update),
+    path('do-emp-update/<int:emp_id>', do_emp_update)
 ]
 
