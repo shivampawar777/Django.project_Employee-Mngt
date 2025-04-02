@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Employee Details</title>
+    <title>Employee List</title>
     {% include 'bootstrap.html' %}
 </head>
 <body>
     {% include 'navbar.html' %}
     
-    <h1 class="text-center my-3">List of Employees</h1>
+    <h3 class="text-center my-3">List of Employees</h3>
     
     <div class="container">
         <div class="card">
@@ -23,16 +23,14 @@
                     <th>DEPARTMENT</th>
                     <th>FULL NAME</th>
                     <th>CONTACT NO</th>
-                    <th>ADDRESS</th>
-                    <th>STATE</th>
-                    <th>ID PROOF</th>
+                    <th>    </th>
                     <th>    </th>
                 </tr>
                 </thead>
                 <tbody>
                     {% for e in empdata %}
                     <tr>
-                        <td>{{e.id}}</td>
+                        <td>{{forloop.counter}}</td>
                         <td>{{e.emp_id}}</td>
                         <td>{{e.working}}</td>
                         <td>{{e.jdate}}</td>
@@ -40,9 +38,9 @@
                         <td>{{e.dept}}</td>
                         <td>{{e.name}}</td>
                         <td>{{e.contact}}</td>
-                        <td>{{e.add}}</td>
-                        <td>{{e.state}}</td>
-                        <td>{{e.idproof}}</td>
+                        <td>
+                            <a href="/index/emp-detail/{{e.id}}" class="btn btn-dark btn-sm">Details</a>
+                        </td>
                         <td>
                             <a href="/index/emp-update/{{e.id}}" class="btn btn-dark btn-sm">Update</a>
                         </td>

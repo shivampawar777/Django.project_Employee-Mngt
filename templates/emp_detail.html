@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Employee Update</title>
+  <title>Employee Details</title>
   {% include 'bootstrap.html' %}  
 </head>
 <body>
   {% include 'navbar.html' %}
   
-  <h3 class="text-center my-3">Update Employee Details</h3>
+  <h3 class="text-center my-3">Employee Details</h3>
 
   <div class="container">
     <div class="row">
     <div class="card">
     <div class="card-body">
-      <form action="/index/do-emp-update/{{emp.id}}" class="row g-4" method="POST">
+      <form action="/index/do-emp-update/{{emp.emp_id}}" class="row g-4" method="POST">
         {% csrf_token %}
         <div class="col-md-3">
           <label for="empid" class="form-label">Employee ID</label>
@@ -24,12 +24,12 @@
           <label for="designation" class="form-label">Designation</label>
           <input type="text" class="form-control" name="designation" id="designation">
         </div>
-
+  
         <div class="col-md-3">
           <label for="department" class="form-label">Department</label>
           <input type="text" class="form-control" name="dept" id="department" value="{{emp.dept}}">
         </div>
-
+  
         <div class="col-md-3">
           <label for="joiningdate" class="form-label">Joining Date</label>
           <input type="date" class="form-control" name="jdate" id="joiningdate" value="{{emp.jdate}}">
@@ -64,7 +64,7 @@
           <label for="PANID" class="form-label">PAN ID</label>
           <input type="text" class="form-control" name="panid" id="PANID">
         </div>
-  
+
         <div class="col-md-3">
           <label for="birthdate" class="form-label">Birth Date</label>
           <input type="date" class="form-control" name="birthdate" id="birthdate">

@@ -35,18 +35,23 @@ def add_emp(request):
     return render(request, "add_emp.html", {})
 
 
-def empview(request):
+def emp_list(request):
     empdata=Empdata.objects.all()
 
-    return render(request, "empview.html", {'empdata':empdata})
+    return render(request, "emplist.html", {'empdata':empdata})
 
-def emp_update(request,emp_id):
-    empinfo=Empdata.objects.get(pk=emp_id)
+def emp_detail(request, id):
+    empinfo=Empdata.objects.get(pk=id)
+
+    return render(request, "emp_detail.html", {'emp':empinfo})
+
+def emp_update(request, id):
+    empinfo=Empdata.objects.get(pk=id)
 
     return render(request, "emp_update.html", {'emp':empinfo})
 
 
-def do_emp_update(request,emp_id):
+def do_emp_update(request, id):
 
     if request.method=='POST':
         name=request.POST.get('name')
@@ -59,7 +64,7 @@ def do_emp_update(request,emp_id):
         idproof=request.POST.get('idproof')
         working=request.POST.get('working')
 
-        e=Empdata.objects.get(pk=emp_id)
+        e=Empdata.objects.get(pk=id)
         e.name=name
         e.contact=contact
         e.dept=dept
@@ -78,5 +83,5 @@ def do_emp_update(request,emp_id):
 
     # render to the employee details page to see changes
     empdata=Empdata.objects.all()
-    return render(request, "empview.html", {'empdata':empdata})
+    return render(request, "emplist.html", {'empdata':empdata})
 
